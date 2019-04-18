@@ -6,11 +6,11 @@ set -e
 if [ "${BUILD_REASON}" != "PullRequest" ]; then
   cd "$ZIGBUILDDIR"
 
-  rm release/*.lib release/*.exe
+  mkdir release
   mv ../LICENSE release/
   mv ../zig-cache/langref.html release/
-  mv release/bin/zig.exe release/
-  rmdir release/bin
+  mv lib/zig release/lib/zig
+  mv bin/zig.exe release/
 
   VERSION=$(release/zig.exe version)
   DIRNAME="zig-windows-x86_64-$VERSION"
