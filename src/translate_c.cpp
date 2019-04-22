@@ -4939,5 +4939,7 @@ Error parse_h_file(CodeGen *codegen, AstNode **out_root_node,
 
     *out_root_node = c->root;
 
+    ZigClangASTUnit_delete(ast_unit);
+
     return ErrorNone;
 }
